@@ -1,4 +1,4 @@
-require('es6-promise-polyfill');
+require('es6-promise/auto');
 var Websandbox = require('websandbox/dist/frame');
 
 function getClassInstanceInterface(instance) {
