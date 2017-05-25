@@ -1,6 +1,6 @@
 {
   "name": "hub-dashboard-addons",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A library that provides Hub dashboard API for creating custom widgets",
   "main": "dist/dashboard-api.js",
   "scripts": {
@@ -30,6 +30,6 @@
   "dependencies": {
     "es6-promise-polyfill": "^1.2.0",
     "webpack": "^2.6.1",
-    "websandbox": "*"
+    "websandbox": "^0.4"
   }
 }
