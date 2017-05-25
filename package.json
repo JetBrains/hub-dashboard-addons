@@ -1,0 +1,35 @@
+{
+  "name": "hub-dashboard-addons",
+  "version": "0.0.1",
+  "description": "A library that provides Hub dashboard API for creating custom widgets",
+  "main": "dist/dashboard-api.js",
+  "scripts": {
+    "build": "rm -rf dist && webpack --bail --devtool sourcemap",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huston007/hub-dashboard-addons.git"
+  },
+  "files": [
+    "dist",
+    "dashboard-api.js",
+    "webpack.config.js"
+  ],
+  "keywords": [
+    "Hub",
+    "Dashboard",
+    "Widget"
+  ],
+  "author": "Andrey Skladchikov",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/huston007/hub-dashboard-addons/issues"
+  },
+  "homepage": "https://github.com/huston007/hub-dashboard-addons#readme",
+  "dependencies": {
+    "es6-promise-polyfill": "^1.2.0",
+    "webpack": "^2.6.1",
+    "websandbox": "*"
+  }
+}
