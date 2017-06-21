@@ -14,23 +14,24 @@ function getClassInstanceInterface(instance) {
 
 module.exports = {
   registerWidget: function(widget) {
-    return Promise.resolve(Websandbox.connection.remoteMethodsWaitPromise)
-        .then(function() {
-        //Create new instance and register if it is a class
-        if (typeof widget === 'function') {
-            return new widget(
-            Websandbox.connection.remote,
-            function registerWidgetApi(widgetApi) {
-                if (Object.getPrototypeOf(widgetApi) !== Object.prototype) {
-                widgetApi = getClassInstanceInterface(widgetApi);
-                }
-
-                return Websandbox.connection.setLocalApi(widgetApi);
+    return Promise.resolve(
+      Websandbox.connection.remoteMethodsWaitPromise
+    ).then(function() {
+      //Create new instance and register if it is a class
+      if (typeof widget === 'function') {
+        return new widget(
+          Websandbox.connection.remote,
+          function registerWidgetApi(widgetApi) {
+            if (Object.getPrototypeOf(widgetApi) !== Object.prototype) {
+              widgetApi = getClassInstanceInterface(widgetApi);
             }
-            );
-        }
 
-        return Websandbox.connection.setLocalApi(widget);
-        });
+            return Websandbox.connection.setLocalApi(widgetApi);
+          }
+        );
+      }
+
+      return Websandbox.connection.setLocalApi(widget);
+    });
   }
 };
