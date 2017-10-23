@@ -1,4 +1,5 @@
 require('es6-promise/auto');
+var isArrowFunction = require('is-arrow-function');
 var Websandbox = require('websandbox/dist/frame');
 
 function getClassInstanceInterface(instance) {
@@ -17,18 +18,21 @@ module.exports = {
     return Promise.resolve(
       Websandbox.connection.remoteMethodsWaitPromise
     ).then(function() {
-      //Create new instance and register if it is a class
-      if (typeof widget === 'function') {
-        return new widget(
-          Websandbox.connection.remote,
-          function registerWidgetApi(widgetApi) {
-            if (Object.getPrototypeOf(widgetApi) !== Object.prototype) {
-              widgetApi = getClassInstanceInterface(widgetApi);
-            }
 
-            return Websandbox.connection.setLocalApi(widgetApi);
+      if (typeof widget === 'function') {
+        function registerWidgetApi(widgetApi) {
+          if (Object.getPrototypeOf(widgetApi) !== Object.prototype) {
+            widgetApi = getClassInstanceInterface(widgetApi);
           }
-        );
+
+          return Websandbox.connection.setLocalApi(widgetApi);
+        }
+
+        if (isArrowFunction(widget)) {
+          return widget(Websandbox.connection.remote, registerWidgetApi);
+        }
+        
+        return new widget(Websandbox.connection.remote, registerWidgetApi);
       }
 
       return Websandbox.connection.setLocalApi(widget);
