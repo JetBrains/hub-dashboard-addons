@@ -1,6 +1,11 @@
 require('es6-promise/auto');
 var isArrowFunction = require('is-arrow-function');
+var getUrlParam = require('get-url-param');
 var Websandbox = require('websandbox/dist/frame');
+
+function getLocaleFromIFrameURL() {
+  return getUrlParam(window.location.href, 'locale');
+}
 
 function getClassInstanceInterface(instance) {
   var methods = Object['getOwnPropertyNames'](Object.getPrototypeOf(instance));
@@ -14,11 +19,11 @@ function getClassInstanceInterface(instance) {
 }
 
 module.exports = {
+  locale: getLocaleFromIFrameURL(),
   registerWidget: function(widget) {
     return Promise.resolve(
       Websandbox.connection.remoteMethodsWaitPromise
     ).then(function() {
-
       if (typeof widget === 'function') {
         function registerWidgetApi(widgetApi) {
           if (Object.getPrototypeOf(widgetApi) !== Object.prototype) {
