@@ -1,10 +1,10 @@
 {
   "name": "hub-dashboard-addons",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "A library that provides Hub dashboard API for creating custom widgets",
   "main": "dist/dashboard-api.js",
   "scripts": {
-    "build": "rm -rf dist && webpack --bail --devtool sourcemap",
+    "build": "rm -rf dist && webpack --bail -p --devtool sourcemap",
     "prepublish": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
