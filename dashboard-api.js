@@ -18,12 +18,23 @@ function getClassInstanceInterface(instance) {
   return _interface;
 }
 
+function listenDocumentClicks(onClick) {
+  if (!onClick) {
+    return;
+  }
+  document.addEventListener('click', function onDocumentClick() {
+    onClick();
+  });
+}
+
 module.exports = {
   locale: getLocaleFromIFrameURL(),
   registerWidget: function(widget) {
     return Promise.resolve(
       Websandbox.connection.remoteMethodsWaitPromise
     ).then(function() {
+      listenDocumentClicks(Websandbox.connection.remote._closePopups);
+
       if (typeof widget === 'function') {
         function registerWidgetApi(widgetApi) {
           if (Object.getPrototypeOf(widgetApi) !== Object.prototype) {
