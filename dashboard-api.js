@@ -7,6 +7,10 @@ function getLocaleFromIFrameURL() {
   return getUrlParam(window.location.href, 'locale');
 }
 
+function getIsEditableFromIFrameURL() {
+  return getUrlParam(window.location.href, 'editable') === 'true';
+}
+
 function getClassInstanceInterface(instance) {
   var methods = Object['getOwnPropertyNames'](Object.getPrototypeOf(instance));
   var _interface = {};
@@ -29,6 +33,7 @@ function listenDocumentClicks(onClick) {
 
 module.exports = {
   locale: getLocaleFromIFrameURL(),
+  editable: getIsEditableFromIFrameURL(),
   registerWidget: function(widget) {
     return Promise.resolve(
       Websandbox.connection.remoteMethodsWaitPromise
