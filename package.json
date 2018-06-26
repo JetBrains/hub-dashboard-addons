@@ -31,8 +31,8 @@
   "homepage": "https://github.com/huston007/hub-dashboard-addons#readme",
   "dependencies": {
     "es6-promise": "^4.1.0",
-    "get-url-param": "1.0.1",
     "is-arrow-function": "2.0.3",
+    "js-polyfills": "^0.1.42",
     "websandbox": "0.4.4"
   },
   "devDependencies": {

@@ -1,10 +1,11 @@
 require('es6-promise/auto');
 var isArrowFunction = require('is-arrow-function');
-var getUrlParam = require('get-url-param');
 var Websandbox = require('websandbox/dist/frame');
+var URL = require('js-polyfills/url');
 
 function getLocaleFromIFrameURL() {
-  return getUrlParam(window.location.href, 'locale');
+  return new URL(window.location.href)
+    .searchParams.get('locale');
 }
 
 function getIsEditableFromIFrameURL() {
