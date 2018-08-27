@@ -1,7 +1,7 @@
-require('es6-promise/auto');
-const isArrowFunction = require('is-arrow-function');
-const getUrlParam = require('get-url-param');
-const Websandbox = require('websandbox/dist/frame');
+import 'es6-promise/auto';
+import isArrowFunction from 'is-arrow-function';
+import getUrlParam from 'get-url-param';
+import Websandbox from 'websandbox/dist/frame';
 
 function getLocaleFromIFrameURL() {
   return getUrlParam(window.location.href, 'locale');
@@ -33,7 +33,7 @@ function listenDocumentClicks(onClick) {
   });
 }
 
-module.exports = {
+export default {
   locale: getLocaleFromIFrameURL(),
   editable: getIsEditableFromIFrameURL(),
   registerWidget: function registerWidget(widget) {

@@ -15,8 +15,7 @@
   },
   "files": [
     "dist",
-    "dashboard-api.js",
-    "dashboard.css",
+    "compnents",
     "webpack.config.js"
   ],
   "keywords": [

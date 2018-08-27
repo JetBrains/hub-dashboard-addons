@@ -1,6 +1,6 @@
 /*eslint no-magic-numbers: ["error", { "ignore": [1, 10, 100, 0, 2, 4, 11, 20] }]*/
 
-const fecha = require('fecha');
+import fecha from 'fecha';
 
 class I18n {
   static GET_PLURALS_MAP = {
@@ -79,9 +79,9 @@ class I18n {
 }
 
 const I18N_INSTANCE = new I18n();
-const i18n = I18N_INSTANCE.translate.bind(I18N_INSTANCE);
+export const i18n = I18N_INSTANCE.translate.bind(I18N_INSTANCE);
 
-const i18nTimeIdentifiers = {};
+export const i18nTimeIdentifiers = {};
 
 function configureFecha() {
   fecha.i18n.dayNamesShort = i18n('Sun|Mon|Tue|Wed|Thu|Fri|Sat').split('|');
@@ -93,11 +93,7 @@ function configureFecha() {
   fecha.masks.dateAndTimePresentation = 'DD MMM YYYY HH:MM';
 }
 
-function setLocale(lang, translations) {
+export function setLocale(lang, translations) {
   I18N_INSTANCE.setTranslations(lang, translations[lang]);
   configureFecha();
 }
-
-module.exports.i18n = i18n;
-module.exports.i18nTimeIdentifiers = i18nTimeIdentifiers;
-module.exports.setLocale = setLocale;
