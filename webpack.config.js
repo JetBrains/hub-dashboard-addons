@@ -20,10 +20,11 @@ module.exports = {
         loader: 'babel-loader',
         query: {
           presets: [
-            path.resolve(__dirname, path.join('node_modules', '@jetbrains', 'babel-preset-jetbrains'))
+            ['env', {useBuiltIns: true}]
           ],
           plugins: [
-            'babel-plugin-transform-runtime'
+            'babel-plugin-transform-runtime',
+            'babel-plugin-transform-class-properties'
           ]
         }
       }
