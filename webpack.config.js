@@ -20,7 +20,12 @@ module.exports = {
         loader: 'babel-loader',
         query: {
           presets: [
-            ['env', {useBuiltIns: true}]
+            [
+              'env', {
+                useBuiltIns: true,
+                modules: 'umd'
+              }
+            ]
           ],
           plugins: [
             'babel-plugin-transform-runtime',

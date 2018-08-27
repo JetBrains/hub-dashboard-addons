@@ -33,7 +33,7 @@ function listenDocumentClicks(onClick) {
   });
 }
 
-export default {
+module.exports = {
   locale: getLocaleFromIFrameURL(),
   editable: getIsEditableFromIFrameURL(),
   registerWidget: function registerWidget(widget) {
