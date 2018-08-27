@@ -6,7 +6,8 @@
   "scripts": {
     "build": "rm -rf dist && webpack --bail -p --devtool sourcemap",
     "prepublish": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint 'components/**/*.js' --quiet=true"
   },
   "repository": {
     "type": "git",
@@ -44,6 +45,9 @@
     "websandbox": "0.4.4"
   },
   "devDependencies": {
+    "@jetbrains/eslint-config": "4.0.3",
+    "babel-eslint": "8.2.6",
+    "eslint": "5.4.0",
     "webpack": "^2.6.1"
   }
 }

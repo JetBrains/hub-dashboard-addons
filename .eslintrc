@@ -1,0 +1,19 @@
+{
+  "parser": "babel-eslint",
+  "root": true,
+  "extends": [
+    "@jetbrains",
+    "@jetbrains/eslint-config/es6",
+    "@jetbrains/eslint-config/browser",
+    "@jetbrains/eslint-config/react",
+    "@jetbrains/eslint-config/test"
+  ],
+  "globals": {
+    "module": false
+  },
+  "rules": {
+    "import/no-commonjs": "off",
+    "react/jsx-no-bind": "off",
+    "react/no-deprecated": "off"
+  }
+}
