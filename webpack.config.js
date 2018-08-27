@@ -3,7 +3,8 @@ var path = require('path');
 
 module.exports = {
     entry: {
-        'dashboard-api': './dashboard-api'
+        'dashboard-api': './components/dashboard-api/src/dashboard-api',
+        'localization': './components/localization/src/localization'
     },
     output: {
         path: __dirname + '/dist',
@@ -11,5 +12,22 @@ module.exports = {
         library: 'Dashboard',
         filename: '[name].js'
     },
-    module: {}
+    module: {
+        strictExportPresence: true,
+        rules: [
+          {
+            test: /\.js/,
+            include: [__dirname],
+            loader: 'babel-loader',
+            query: {
+              presets: [
+                path.resolve(__dirname, path.join('node_modules', '@jetbrains', 'babel-preset-jetbrains'))
+              ],
+              plugins: [
+                'babel-plugin-transform-runtime'
+              ]
+            }
+          }
+        ]
+    }
 };
