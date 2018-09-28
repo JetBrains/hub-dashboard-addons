@@ -1,6 +1,6 @@
 {
   "name": "hub-dashboard-addons",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A library that provides Hub dashboard API for creating custom widgets",
   "main": "dist/dashboard-api.js",
   "scripts": {
@@ -16,7 +16,8 @@
   "files": [
     "dist",
     "components",
-    "webpack.config.js"
+    "webpack.config.js",
+    "dashboard.css"
   ],
   "keywords": [
     "Hub",
