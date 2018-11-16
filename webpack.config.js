@@ -16,7 +16,7 @@ module.exports = {
     rules: [
       {
         test: /\.js/,
-        include: [path.resolve('.', './components')],
+        include: [path.resolve('.', './components/localization')],
         loader: 'babel-loader',
         query: {
           presets: [

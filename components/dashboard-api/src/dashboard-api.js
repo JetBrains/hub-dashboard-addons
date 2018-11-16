@@ -1,10 +1,16 @@
-import 'es6-promise/auto';
-import isArrowFunction from 'is-arrow-function';
-import Websandbox from 'websandbox/dist/frame';
+/* eslint-disable */
+/**
+ * WARNING!
+ * This file won't be transpiled by BABEL
+ * Code should be compatible to all used browsers (IE11+)
+ */
+
+const isArrowFunction = require('is-arrow-function');
+const Websandbox = require ('websandbox/dist/frame');
 
 function getLocaleFromIFrameURL() {
-  const LOCALE_REGEX = /locale=([\w-]+)&?/i;
-  const [, locale] = window.location.href.match(LOCALE_REGEX);
+  var LOCALE_REGEX = /locale=([\w-]+)&?/i;
+  var locale = window.location.href.match(LOCALE_REGEX)[1];
   return locale;
 }
 
@@ -13,13 +19,13 @@ function getIsEditableFromIFrameURL() {
 }
 
 function getClassInstanceInterface(instance) {
-  const methods = Object.getOwnPropertyNames(
+  var methods = Object.getOwnPropertyNames(
     Object.getPrototypeOf(instance)
   );
-  const _interface = {};
+  var _interface = {};
 
-  for (let i = 0; i < methods.length; i++) {
-    const method = methods[i];
+  for (var i = 0; i < methods.length; i++) {
+    var method = methods[i];
     _interface[method] = instance[method].bind(instance);
   }
   return _interface;
@@ -40,22 +46,23 @@ module.exports = {
   registerWidget: function registerWidget(widget) {
     return Promise.resolve(
       Websandbox.connection.remoteMethodsWaitPromise
-    ).then(() => {
+    ).then(function (){
       listenDocumentClicks(Websandbox.connection.remote._closePopups);
 
       if (typeof widget === 'function') {
-        const registerWidgetApi = widgetApi =>
+        var registerWidgetApi = function (widgetApi) {
           Websandbox.connection.setLocalApi(
             Object.getPrototypeOf(widgetApi) !== Object.prototype
               ? getClassInstanceInterface(widgetApi)
               : widgetApi
           );
+        }
 
         if (isArrowFunction(widget)) {
           return widget(Websandbox.connection.remote, registerWidgetApi);
         }
 
-        const Widget = widget;
+        var Widget = widget;
         return new Widget(Websandbox.connection.remote, registerWidgetApi);
       }
 
