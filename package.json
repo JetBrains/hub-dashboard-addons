@@ -33,7 +33,6 @@
   "dependencies": {
     "es6-promise": "4.1.0",
     "is-arrow-function": "2.0.3",
-    "uri-param-parser": "1.0.2",
     "websandbox": "0.4.4"
   },
   "devDependencies": {

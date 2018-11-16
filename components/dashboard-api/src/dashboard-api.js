@@ -1,11 +1,11 @@
 import 'es6-promise/auto';
 import isArrowFunction from 'is-arrow-function';
 import Websandbox from 'websandbox/dist/frame';
-import {Parser} from 'uri-param-parser';
 
 function getLocaleFromIFrameURL() {
-  const parser = new Parser(window.location.href);
-  return parser.extract('locale');
+  const LOCALE_REGEX = /locale=([\w-]+)&?/i;
+  const [, locale] = window.location.href.match(LOCALE_REGEX);
+  return locale;
 }
 
 function getIsEditableFromIFrameURL() {
