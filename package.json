@@ -31,19 +31,19 @@
   },
   "homepage": "https://github.com/huston007/hub-dashboard-addons#readme",
   "dependencies": {
+    "es6-promise": "4.1.0",
+    "is-arrow-function": "2.0.3",
+    "uri-param-parser": "1.0.2",
+    "websandbox": "0.4.4"
+  },
+  "devDependencies": {
+    "@jetbrains/eslint-config": "4.0.3",
     "babel-core": "6.26.3",
     "babel-loader": "7.1.5",
     "babel-plugin-transform-class-properties": "6.24.1",
     "babel-plugin-transform-runtime": "6.23.0",
     "babel-preset-env": "1.7.0",
-    "es6-promise": "4.1.0",
     "fecha": "2.3.3",
-    "get-url-param": "1.0.1",
-    "is-arrow-function": "2.0.3",
-    "websandbox": "0.4.4"
-  },
-  "devDependencies": {
-    "@jetbrains/eslint-config": "4.0.3",
     "babel-eslint": "8.2.6",
     "eslint": "5.4.0",
     "webpack": "^2.6.1"

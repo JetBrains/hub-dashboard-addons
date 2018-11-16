@@ -1,14 +1,15 @@
 import 'es6-promise/auto';
 import isArrowFunction from 'is-arrow-function';
-import getUrlParam from 'get-url-param';
 import Websandbox from 'websandbox/dist/frame';
+import {Parser} from 'uri-param-parser';
 
 function getLocaleFromIFrameURL() {
-  return getUrlParam(window.location.href, 'locale');
+  const parser = new Parser(window.location.href);
+  return parser.extract('locale');
 }
 
 function getIsEditableFromIFrameURL() {
-  return getUrlParam(window.location.href, 'editable') === 'true';
+  return window.location.href.indexOf('editable=true') !== -1;
 }
 
 function getClassInstanceInterface(instance) {
