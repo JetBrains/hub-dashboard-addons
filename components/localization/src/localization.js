@@ -71,15 +71,29 @@ class I18n {
     if (typeof currentTranslation === 'string') {
       return this.interpolate(currentTranslation, interpolationObject);
     }
-    const pluralFormId = this.getPlurals(numberForPlurals || 1);
+    const pluralFormId = this.getPlurals(
+      Number.isInteger(numberForPlurals) ? numberForPlurals : 1
+    );
     return this.interpolate(
       currentTranslation[pluralFormId] || text, interpolationObject
+    );
+  }
+
+  translatePlural(
+    count, textForUnique, textForPlural, interpolationObject, context
+  ) {
+    return this.translate(
+      textForUnique,
+      Object.assign({$count: count}, interpolationObject || {}),
+      count,
+      context
     );
   }
 }
 
 const I18N_INSTANCE = new I18n();
 export const i18n = I18N_INSTANCE.translate.bind(I18N_INSTANCE);
+i18n.plural = I18N_INSTANCE.translatePlural.bind(I18N_INSTANCE);
 
 export const i18nTimeIdentifiers = {};
 
