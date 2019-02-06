@@ -64,29 +64,41 @@ class I18n {
     }
   }
 
-  translate(text, interpolationObject, numberForPlurals, context) {
+  getTranslationString(text, numberForPlurals, context) {
     const contexts = this.dictionary[text] || {};
     const currentTranslation = contexts[context || I18n.DEFAULT_CONTEXT] ||
       contexts;
     if (typeof currentTranslation === 'string') {
-      return this.interpolate(currentTranslation, interpolationObject);
+      return currentTranslation;
     }
     const pluralFormId = this.getPlurals(
       Number.isInteger(numberForPlurals) ? numberForPlurals : 1
     );
+    return currentTranslation[pluralFormId];
+  }
+
+  translate(text, interpolationObject, numberForPlurals, context) {
+    const currentTranslation = this.getTranslationString(
+      text, numberForPlurals, context
+    );
     return this.interpolate(
-      currentTranslation[pluralFormId] || text, interpolationObject
+      currentTranslation || text, interpolationObject
     );
   }
 
   translatePlural(
     count, textForUnique, textForPlural, interpolationObject, context
   ) {
-    return this.translate(
+    const currentTranslation = this.getTranslationString(
       textForUnique,
-      Object.assign({$count: count}, interpolationObject || {}),
       count,
       context
+    );
+    const stringToInterpolate = currentTranslation ||
+      (count === 1 ? textForUnique : textForPlural);
+    return this.interpolate(
+      stringToInterpolate,
+      Object.assign({$count: count}, interpolationObject || {})
     );
   }
 }
