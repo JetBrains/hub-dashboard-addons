@@ -7,7 +7,8 @@
     "build": "rm -rf dist && webpack --bail -p --devtool sourcemap",
     "prepublish": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint 'components/**/*.js' --quiet=true"
+    "lint": "eslint 'components/**/*.js' --quiet=true",
+    "release:ci": "standard-version && git push --follow-tags origin master && npm publish"
   },
   "repository": {
     "type": "git",
@@ -44,6 +45,7 @@
     "fecha": "2.3.3",
     "babel-eslint": "8.2.6",
     "eslint": "5.4.0",
+    "standard-version": "^5.0.0",
     "webpack": "^2.6.1"
   }
 }
