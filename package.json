@@ -1,6 +1,6 @@
 {
   "name": "hub-dashboard-addons",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "description": "A library that provides Hub dashboard API for creating custom widgets",
   "main": "dist/dashboard-api.js",
   "scripts": {
