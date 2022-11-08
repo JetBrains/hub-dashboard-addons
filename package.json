@@ -46,6 +46,6 @@
     "babel-eslint": "8.2.6",
     "eslint": "5.4.0",
     "standard-version": "^5.0.0",
-    "webpack": "^2.6.1"
+    "webpack": "^5.74.0"
   }
 }
