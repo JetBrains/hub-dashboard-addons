@@ -1,4 +1,4 @@
-# hub-dashboard-addons
+# hub-dashboard-addons ![JetBrains Official](https://camo.githubusercontent.com/50846ec406bb3478f0eb9a94d78bc6f042f4de44c4830385f8e5d462edf01abe/68747470733a2f2f6a622e67672f6261646765732f6f6666696369616c2d666c61742d7371756172652e737667)
 A library that provides Hub dashboard API for creating custom widgets.
 
 ## Installation
