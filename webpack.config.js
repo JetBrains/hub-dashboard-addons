@@ -15,22 +15,15 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js/,
-        include: [path.resolve('.', './components/localization')],
-        loader: 'babel-loader',
-        query: {
-          presets: [
-            [
-              'env', {
-                useBuiltIns: true,
-                modules: 'umd'
-              }
+        test: /\.(?:js|mjs|cjs)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              ['@babel/preset-env', {targets: 'safari >= 13, last 2 iOS versions'}]
             ]
-          ],
-          plugins: [
-            'babel-plugin-transform-runtime',
-            'babel-plugin-transform-class-properties'
-          ]
+          }
         }
       }
     ]

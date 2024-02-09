@@ -6,7 +6,7 @@
  */
 
 const isArrowFunction = require('is-arrow-function');
-const Websandbox = require ('websandbox/dist/frame');
+const Websandbox = require ('@jetbrains/websandbox/dist/frame').default;
 
 function getLocaleFromIFrameURL() {
   var LOCALE_REGEX = /locale=([\w-]+)&?/i;
