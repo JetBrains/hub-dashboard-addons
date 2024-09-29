@@ -10,22 +10,27 @@ declare module "hub-dashboard-addons" {
 		id: string;
 		applicationName: string;
 		homeUrl: string;
-    key: string
-    name: string
-    trusted: boolean
-    type: string
-    vendor: string
-    version: string
+		key: string;
+		name: string;
+		trusted: boolean;
+		type: string;
+		vendor: string;
+		version: string;
 	}
 
-  type AlertType = "error" | "message" | "success" | "warning" | "loading"
+	type AlertType = "error" | "message" | "success" | "warning" | "loading";
 
 	export type DashboardApi = {
 		setTitle(label: string, labelUri?: string): Promise<void>;
 		setLoadingAnimationEnabled(enabled: boolean): Promise<void>;
 
-		alert(message: string, type?: AlertType, timeout?: number, options?: object): string | number;
-    setError(e: Error): Promise<void>;
+		alert(
+			message: string,
+			type?: AlertType,
+			timeout?: number,
+			options?: object,
+		): string | number;
+		setError(e: Error): Promise<void>;
 		clearError(): Promise<void>;
 
 		enterConfigMode(): Promise<void>;
