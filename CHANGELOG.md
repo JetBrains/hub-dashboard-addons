@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [1.1.0](https://github.com/huston007/hub-dashboard-addons/compare/v1.0.2...v1.1.0) (2024-09-30)
+
+
+### Features
+
+* add types ([64212e1](https://github.com/huston007/hub-dashboard-addons/commit/64212e12ee35acd0f412bfcb9e6268321a130b50))
+* add types ([062feaf](https://github.com/huston007/hub-dashboard-addons/commit/062feafdd46fa91c86a0a80ae462a59a830fee14))
+
+
+
 ## [1.0.2](https://github.com/huston007/hub-dashboard-addons/compare/v1.0.1...v1.0.2) (2024-03-22)
 
 
